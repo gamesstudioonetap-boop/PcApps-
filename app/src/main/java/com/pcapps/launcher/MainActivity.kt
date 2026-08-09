@@ -74,6 +74,7 @@ data class PickedFile(
     val detection: DetectionResult
 )
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(onOpenPcApp: () -> Unit) {
     Scaffold(
@@ -87,13 +88,13 @@ fun HomeScreen(onOpenPcApp: () -> Unit) {
             verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
             HomeActionCard(
-                icon = Icons.Filled.FolderOpen,
+                icon = Icons.Filled.Add,
                 title = "Open PC App",
                 subtitle = "Pick a .exe, .msi, or Linux binary",
                 onClick = onOpenPcApp
             )
             HomeActionCard(
-                icon = Icons.Filled.History,
+                icon = Icons.Filled.List,
                 title = "Recent Applications",
                 subtitle = "Apps you've launched before",
                 onClick = { /* TODO stage 4: recent list backed by profile store */ }
@@ -105,7 +106,7 @@ fun HomeScreen(onOpenPcApp: () -> Unit) {
                 onClick = { /* TODO stage 6: wired to RuntimeLauncher process list */ }
             )
             HomeActionCard(
-                icon = Icons.Filled.Folder,
+                icon = Icons.Filled.Home,
                 title = "Environments",
                 subtitle = "Manage isolated app containers",
                 onClick = { /* TODO: environment list/manage screen */ }
